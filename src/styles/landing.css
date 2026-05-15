@@ -524,8 +524,8 @@ body:has(.lp.lt) {
   background: #06060d;
 
   --bt-bar: #09090f;
-  --bt-text: rgba(250, 250, 250, 0.22);
-  --bt-faint: rgba(250, 250, 250, 0.14);
+  --bt-text: rgba(250, 250, 250, 0.42);
+  --bt-faint: rgba(250, 250, 250, 0.38);
 }
 .lp-ba-pbar {
   display: flex;
@@ -954,6 +954,9 @@ body:has(.lp.lt) {
   .lp-bn-d {
     grid-column: 1;
     border-right: none;
+  }
+  .lp-bn-b {
+    border-bottom: none;
   }
   .lp-bn-a-preview {
     margin: 0 28px 28px;

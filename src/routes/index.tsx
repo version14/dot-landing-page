@@ -11,7 +11,7 @@ import { LandingNav } from "../components/landing/LandingNav";
 import { LandingToastProvider } from "../components/ui/Toast";
 import landingCss from "../styles/landing.css?url";
 
-const FALLBACK_VERSION = "v0.1.0";
+const FALLBACK_VERSION = "vx.x.x";
 
 async function fetchLatestVersion(): Promise<string> {
   try {
