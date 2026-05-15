@@ -1,41 +1,41 @@
 interface Flow {
-  slug: string
-  title: string
-  desc: string
-  tags: string[]
-  delay: string
+  slug: string;
+  title: string;
+  desc: string;
+  tags: string[];
+  delay: string;
 }
 
 const FLOWS: Flow[] = [
   {
-    slug: 'monorepo',
-    title: 'Monorepo',
-    desc: 'General-purpose TypeScript monorepo with optional React frontend and Biome formatter.',
-    tags: ['TypeScript', 'React', 'Biome', 'pnpm'],
-    delay: '',
+    slug: "monorepo",
+    title: "Monorepo",
+    desc: "General-purpose TypeScript monorepo with optional React frontend and Biome formatter.",
+    tags: ["TypeScript", "React", "Biome", "pnpm"],
+    delay: "",
   },
   {
-    slug: 'fullstack',
-    title: 'Fullstack',
-    desc: 'TypeScript frontend + optional Go backend with decorator API, Zod validation, and OpenAPI v3.',
-    tags: ['TypeScript', 'Go', 'OpenAPI', 'Better Auth'],
-    delay: 'd1',
+    slug: "fullstack",
+    title: "Fullstack",
+    desc: "TypeScript frontend + optional Go backend with decorator API, Zod validation, and OpenAPI v3.",
+    tags: ["TypeScript", "Go", "OpenAPI", "Better Auth"],
+    delay: "d1",
   },
   {
-    slug: 'microservices',
-    title: 'Microservices',
-    desc: 'N independent services, each with its own name and port. Scales to any complexity without coupling.',
-    tags: ['TypeScript', 'Multi-service', 'Independent ports'],
-    delay: '',
+    slug: "microservices",
+    title: "Microservices",
+    desc: "N independent services, each with its own name and port. Scales to any complexity without coupling.",
+    tags: ["TypeScript", "Multi-service", "Independent ports"],
+    delay: "",
   },
   {
-    slug: 'plugin-template',
-    title: 'Plugin Template',
-    desc: 'A publishable dot plugin repository. Build generators for any language or pattern you need.',
-    tags: ['Go', 'Plugin API', 'Publishable'],
-    delay: 'd1',
+    slug: "plugin-template",
+    title: "Plugin Template",
+    desc: "A publishable dot plugin repository. Build generators for any language or pattern you need.",
+    tags: ["Go", "Plugin API", "Publishable"],
+    delay: "d1",
   },
-]
+];
 
 export function LandingFlows() {
   return (
@@ -74,5 +74,5 @@ export function LandingFlows() {
         ))}
       </div>
     </>
-  )
+  );
 }

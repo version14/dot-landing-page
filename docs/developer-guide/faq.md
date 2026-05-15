@@ -20,10 +20,12 @@ Open a [Feature Request issue](../../../issues/new/choose) first to discuss the 
 ## Development
 
 **Q: Tests are failing locally but passing in CI (or vice versa).**
+
 - Make sure your `.env` matches the values expected by the test suite
 - Run `pnpm install --frozen-lockfile` to ensure your dependencies match the lockfile
 
 **Q: How do I run a single test file?**
+
 ```bash
 pnpm vitest run path/to/your.test.ts
 ```

@@ -1,28 +1,28 @@
-import { CopyButton } from '../ui/CopyButton'
+import { CopyButton } from "../ui/CopyButton";
 
 interface InstallMethod {
-  tag: string
-  value: string
-  ariaLabel: string
+  tag: string;
+  value: string;
+  ariaLabel: string;
 }
 
 const INSTALL_METHODS: InstallMethod[] = [
   {
-    tag: 'Homebrew',
-    value: 'brew install version14/tap/dot',
-    ariaLabel: 'Copy Homebrew install command',
+    tag: "Homebrew",
+    value: "brew install version14/tap/dot",
+    ariaLabel: "Copy Homebrew install command",
   },
   {
-    tag: 'curl',
-    value: 'curl -fsSL https://raw.githubusercontent.com/version14/dot/main/install.sh | sh',
-    ariaLabel: 'Copy curl install command',
+    tag: "curl",
+    value: "curl -fsSL https://raw.githubusercontent.com/version14/dot/main/install.sh | sh",
+    ariaLabel: "Copy curl install command",
   },
   {
-    tag: 'go install',
-    value: 'go install github.com/version14/dot/cmd/dot@latest',
-    ariaLabel: 'Copy go install command',
+    tag: "go install",
+    value: "go install github.com/version14/dot/cmd/dot@latest",
+    ariaLabel: "Copy go install command",
   },
-]
+];
 
 export function LandingInstall() {
   return (
@@ -46,12 +46,12 @@ export function LandingInstall() {
         </div>
 
         <p className="lp-cta-note lp-fu">
-          MIT Licensed ·{' '}
+          MIT Licensed ·{" "}
           <a href="https://github.com/version14/dot" target="_blank" rel="noopener noreferrer">
             github.com/version14/dot →
           </a>
         </p>
       </div>
     </div>
-  )
+  );
 }

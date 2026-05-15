@@ -1,25 +1,25 @@
 const footerLinks = [
   {
-    label: 'Docs',
-    href: 'https://github.com/version14/dot/blob/main/docs/user/getting-started.md',
+    label: "Docs",
+    href: "https://github.com/version14/dot/blob/main/docs/user/getting-started.md",
   },
   {
-    label: 'Contributing',
-    href: 'https://github.com/version14/dot/blob/main/CONTRIBUTING.md',
+    label: "Contributing",
+    href: "https://github.com/version14/dot/blob/main/CONTRIBUTING.md",
   },
   {
-    label: 'Changelog',
-    href: 'https://github.com/version14/dot/blob/main/CHANGELOG.md',
+    label: "Changelog",
+    href: "https://github.com/version14/dot/blob/main/CHANGELOG.md",
   },
   {
-    label: 'License',
-    href: 'https://github.com/version14/dot/blob/main/LICENSE',
+    label: "License",
+    href: "https://github.com/version14/dot/blob/main/LICENSE",
   },
   {
-    label: 'GitHub',
-    href: 'https://github.com/version14/dot',
+    label: "GitHub",
+    href: "https://github.com/version14/dot",
   },
-]
+];
 
 export function LandingFooter() {
   return (
@@ -36,5 +36,5 @@ export function LandingFooter() {
       </nav>
       <div className="lp-f-right">version14/dot · MIT</div>
     </footer>
-  )
+  );
 }

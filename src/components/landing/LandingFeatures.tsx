@@ -12,7 +12,7 @@ const TerminalIcon = () => (
     <polyline points="4 17 10 11 4 5" />
     <line x1="12" y1="19" x2="20" y2="19" />
   </svg>
-)
+);
 
 const ExtensibleIcon = () => (
   <svg
@@ -29,7 +29,7 @@ const ExtensibleIcon = () => (
     <polyline points="2 17 12 22 22 17" />
     <polyline points="2 12 12 17 22 12" />
   </svg>
-)
+);
 
 const DoctorIcon = () => (
   <svg
@@ -46,7 +46,7 @@ const DoctorIcon = () => (
     <path d="M1 20v-6h6" />
     <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15" />
   </svg>
-)
+);
 
 const PipelineIcon = () => (
   <svg
@@ -62,9 +62,9 @@ const PipelineIcon = () => (
     <line x1="22" y1="2" x2="11" y2="13" />
     <polygon points="22 2 15 22 11 13 2 9 22 2" />
   </svg>
-)
+);
 
-const PIPELINE_STEPS = ['TUI survey', 'Spec', 'Generators', 'File tree', 'Project on disk']
+const PIPELINE_STEPS = ["TUI survey", "Spec", "Generators", "File tree", "Project on disk"];
 
 export function LandingFeatures() {
   return (
@@ -126,7 +126,7 @@ export function LandingFeatures() {
                 </div>
                 <br />
                 <div>
-                  <span className="lp-dim2">✦&nbsp;&nbsp;</span>Include React?&nbsp;{' '}
+                  <span className="lp-dim2">✦&nbsp;&nbsp;</span>Include React?&nbsp;{" "}
                   <span className="lp-ac">❯ yes</span>
                   <span className="lp-dim2">&nbsp; no</span>
                 </div>
@@ -172,15 +172,15 @@ export function LandingFeatures() {
           <h3>Deterministic pipeline</h3>
           <p>
             Every scaffold runs the same flow. Reproducible, auditable, and the full spec is always
-            written to{' '}
-            <code style={{ fontFamily: 'var(--fm)', fontSize: 11, color: 'var(--dm)' }}>
+            written to{" "}
+            <code style={{ fontFamily: "var(--fm)", fontSize: 11, color: "var(--dm)" }}>
               .dot/spec.json
             </code>
             .
           </p>
           <div className="lp-pipeline" aria-label="Pipeline steps">
             {PIPELINE_STEPS.map((step, i) => (
-              <span key={step} style={{ display: 'contents' }}>
+              <span key={step} style={{ display: "contents" }}>
                 <div className="lp-pip-s">{step}</div>
                 {i < PIPELINE_STEPS.length - 1 && (
                   <span className="lp-pip-a" aria-hidden="true">
@@ -193,5 +193,5 @@ export function LandingFeatures() {
         </div>
       </div>
     </>
-  )
+  );
 }

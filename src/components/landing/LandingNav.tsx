@@ -1,16 +1,16 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from "react";
 
 export function LandingNav() {
-  const [scrolled, setScrolled] = useState(false)
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const handler = () => setScrolled(window.scrollY > 8)
-    window.addEventListener('scroll', handler, { passive: true })
-    return () => window.removeEventListener('scroll', handler)
-  }, [])
+    const handler = () => setScrolled(window.scrollY > 8);
+    window.addEventListener("scroll", handler, { passive: true });
+    return () => window.removeEventListener("scroll", handler);
+  }, []);
 
   return (
-    <nav id="lp-nav" className={`lp-nav${scrolled ? ' sc' : ''}`} role="banner">
+    <nav id="lp-nav" className={`lp-nav${scrolled ? " sc" : ""}`} role="banner">
       <div className="lp-ni">
         <a href="#" className="lp-logo" aria-label="dot home">
           <span>·</span>dot
@@ -46,5 +46,5 @@ export function LandingNav() {
         </div>
       </div>
     </nav>
-  )
+  );
 }

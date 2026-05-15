@@ -1,7 +1,8 @@
-import { CopyButton } from '../ui/CopyButton'
-import { Terminal } from './Terminal'
+import { CopyButton } from "../ui/CopyButton";
+import { Terminal } from "./Terminal";
 
-const INSTALL_CMD = 'curl -fsSL https://raw.githubusercontent.com/version14/dot/main/install.sh | sh'
+const INSTALL_CMD =
+  "curl -fsSL https://raw.githubusercontent.com/version14/dot/main/install.sh | sh";
 
 export function LandingHero() {
   return (
@@ -44,11 +45,7 @@ export function LandingHero() {
           <span className="lp-ival" aria-label="curl install command">
             {INSTALL_CMD}
           </span>
-          <CopyButton
-            text={INSTALL_CMD}
-            className="lp-icp"
-            aria-label="Copy install command"
-          />
+          <CopyButton text={INSTALL_CMD} className="lp-icp" aria-label="Copy install command" />
         </div>
       </div>
 
@@ -56,5 +53,5 @@ export function LandingHero() {
         <Terminal />
       </div>
     </section>
-  )
+  );
 }

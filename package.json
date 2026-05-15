@@ -2,7 +2,6 @@
   "name": "dot-lp",
   "private": true,
   "type": "module",
-  "packageManager": "pnpm@11.1.2",
   "imports": {
     "#/*": "./src/*"
   },
@@ -46,6 +45,7 @@
     "vite-plus": "catalog:",
     "vitest": "^4.1.5"
   },
+  "packageManager": "pnpm@11.1.2",
   "pnpm": {
     "onlyBuiltDependencies": [
       "esbuild",

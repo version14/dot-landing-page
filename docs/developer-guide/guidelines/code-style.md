@@ -32,13 +32,13 @@ All checks must pass before a PR can be merged. The CI pipeline enforces this au
 
 <!-- Adapt the table below to your language and framework. -->
 
-| Element | Convention | Example |
-|---------|------------|---------|
-| Files | `kebab-case` | `user-service.ts` |
-| Classes | `PascalCase` | `UserService` |
-| Functions / methods | `camelCase` | `getUserById` |
-| Constants | `UPPER_SNAKE_CASE` | `MAX_RETRY_COUNT` |
-| Private members | `_prefixed` or language convention | `_cache` |
+| Element             | Convention                         | Example           |
+| ------------------- | ---------------------------------- | ----------------- |
+| Files               | `kebab-case`                       | `user-service.ts` |
+| Classes             | `PascalCase`                       | `UserService`     |
+| Functions / methods | `camelCase`                        | `getUserById`     |
+| Constants           | `UPPER_SNAKE_CASE`                 | `MAX_RETRY_COUNT` |
+| Private members     | `_prefixed` or language convention | `_cache`          |
 
 ---
 

@@ -1,17 +1,17 @@
 const TECHS = [
-  'TypeScript',
-  'Go',
-  'React',
-  'Biome',
-  'Monorepo',
-  'Fullstack',
-  'Microservices',
-  'Express',
-  'Better Auth',
-  'OpenAPI',
-  'Zod',
-  'pnpm',
-]
+  "TypeScript",
+  "Go",
+  "React",
+  "Biome",
+  "Monorepo",
+  "Fullstack",
+  "Microservices",
+  "Express",
+  "Better Auth",
+  "OpenAPI",
+  "Zod",
+  "pnpm",
+];
 
 function MarqueeItem({ techs, hidden }: { techs: string[]; hidden?: boolean }) {
   return (
@@ -23,7 +23,7 @@ function MarqueeItem({ techs, hidden }: { techs: string[]; hidden?: boolean }) {
         </span>
       ))}
     </div>
-  )
+  );
 }
 
 export function LandingMarquee() {
@@ -34,5 +34,5 @@ export function LandingMarquee() {
         <MarqueeItem techs={TECHS} hidden />
       </div>
     </div>
-  )
+  );
 }

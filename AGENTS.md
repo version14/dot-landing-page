@@ -1,7 +1,9 @@
 <!-- intent-skills:start -->
+
 ## Skill Loading
 
 Before substantial work:
+
 - Skill check: run `pnpm dlx @tanstack/intent@latest list`, or use skills already listed in context.
 - Skill guidance: if one local skill clearly matches the task, run `pnpm dlx @tanstack/intent@latest load <package>#<skill>` and follow the returned `SKILL.md`.
 - Monorepos: when working across packages, run the skill check from the workspace root and prefer the local skill for the package being changed.
@@ -21,16 +23,16 @@ npx @tanstack/cli@latest create my-tanstack-app --agent --tailwind --add-ons bio
 
 ### Stack
 
-| Concern       | Choice                                          |
-|---------------|-------------------------------------------------|
-| Framework     | TanStack Start (React 19, SSR)                  |
-| Routing       | TanStack Router (file-based)                    |
-| Styling       | Tailwind CSS v4                                 |
-| Linting/fmt   | Biome 2.x                                       |
-| Testing       | Vitest + Testing Library                        |
-| Package mgr   | pnpm@11.1.2                                     |
-| Bundler       | Vite+ (`@voidzero-dev/vite-plus-core`) via `vp` |
-| Devtools      | TanStack Devtools + Router devtools             |
+| Concern     | Choice                                          |
+| ----------- | ----------------------------------------------- |
+| Framework   | TanStack Start (React 19, SSR)                  |
+| Routing     | TanStack Router (file-based)                    |
+| Styling     | Tailwind CSS v4                                 |
+| Linting/fmt | Biome 2.x                                       |
+| Testing     | Vitest + Testing Library                        |
+| Package mgr | pnpm@11.1.2                                     |
+| Bundler     | Vite+ (`@voidzero-dev/vite-plus-core`) via `vp` |
+| Devtools    | TanStack Devtools + Router devtools             |
 
 ### Key Files
 

@@ -8,9 +8,9 @@ This guide walks you through setting up the project locally for development.
 
 <!-- List the tools required to run this project and link to their installation pages. -->
 
-| Tool | Version | Install |
-|------|---------|---------|
-| <!-- e.g. Node --> | <!-- e.g. >= 22.x --> | <!-- link --> |
+| Tool                 | Version               | Install       |
+| -------------------- | --------------------- | ------------- |
+| <!-- e.g. Node -->   | <!-- e.g. >= 22.x --> | <!-- link --> |
 | <!-- e.g. Docker --> | <!-- e.g. >= 27.x --> | <!-- link --> |
 
 ---
@@ -58,10 +58,10 @@ This guide walks you through setting up the project locally for development.
 
 <!-- Document every variable in .env.example here. -->
 
-| Variable | Required | Default | Description |
-|----------|----------|---------|-------------|
-| `PORT`   | No       | `3000`  | Port the server listens on |
-| <!-- add rows --> | | | |
+| Variable          | Required | Default | Description                |
+| ----------------- | -------- | ------- | -------------------------- |
+| `PORT`            | No       | `3000`  | Port the server listens on |
+| <!-- add rows --> |          |         |                            |
 
 ---
 
