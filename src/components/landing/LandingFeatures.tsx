@@ -1,3 +1,5 @@
+import { BentoTUI } from "./BentoTUI";
+
 const TerminalIcon = () => (
   <svg
     width="15"
@@ -100,43 +102,7 @@ export function LandingFeatures() {
                 feedback — no YAML or config to maintain.
               </p>
             </div>
-            <div className="lp-bn-a-preview" aria-hidden="true">
-              <div className="lp-ba-pbar">
-                <div className="lp-bpd lp-bpr" />
-                <div className="lp-bpd lp-bpy" />
-                <div className="lp-bpd lp-bpg" />
-              </div>
-              <div className="lp-ba-pbody">
-                <div>
-                  <span className="lp-dim2">$ </span>
-                  <span className="lp-hl">dot scaffold</span>
-                </div>
-                <br />
-                <div>
-                  <span className="lp-dim2">✦&nbsp;&nbsp;</span>Pick a flow
-                </div>
-                <div>
-                  &nbsp;&nbsp;<span className="lp-ac">❯&nbsp;&nbsp;monorepo</span>
-                </div>
-                <div>
-                  <span className="lp-dim2">&nbsp;&nbsp;&nbsp;&nbsp;fullstack</span>
-                </div>
-                <div>
-                  <span className="lp-dim2">&nbsp;&nbsp;&nbsp;&nbsp;microservices</span>
-                </div>
-                <br />
-                <div>
-                  <span className="lp-dim2">✦&nbsp;&nbsp;</span>Include React?&nbsp;{" "}
-                  <span className="lp-ac">❯ yes</span>
-                  <span className="lp-dim2">&nbsp; no</span>
-                </div>
-                <div>
-                  <span className="lp-dim2">✦&nbsp;&nbsp;</span>Add Biome?&nbsp;&nbsp;&nbsp;&nbsp;
-                  <span className="lp-ac">❯ yes</span>
-                  <span className="lp-dim2">&nbsp; no</span>
-                </div>
-              </div>
-            </div>
+            <BentoTUI />
           </div>
         </div>
 
@@ -172,11 +138,7 @@ export function LandingFeatures() {
           <h3>Deterministic pipeline</h3>
           <p>
             Every scaffold runs the same flow. Reproducible, auditable, and the full spec is always
-            written to{" "}
-            <code style={{ fontFamily: "var(--fm)", fontSize: 11, color: "var(--dm)" }}>
-              .dot/spec.json
-            </code>
-            .
+            written to <code className="lp-code">.dot/spec.json</code> .
           </p>
           <div className="lp-pipeline" aria-label="Pipeline steps">
             {PIPELINE_STEPS.map((step, i) => (

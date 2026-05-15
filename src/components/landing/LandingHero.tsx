@@ -4,13 +4,17 @@ import { Terminal } from "./Terminal";
 const INSTALL_CMD =
   "curl -fsSL https://raw.githubusercontent.com/version14/dot/main/install.sh | sh";
 
-export function LandingHero() {
+interface LandingHeroProps {
+  version: string;
+}
+
+export function LandingHero({ version }: Readonly<LandingHeroProps>) {
   return (
     <section className="lp-hero" aria-label="Hero">
       <div className="lp-hero-l">
         <div className="lp-badge">
           <span className="lp-badge-dot" aria-hidden="true" />
-          v0.1.0 · Open Source · MIT
+          {version} · Open Source · MIT
         </div>
 
         <h1>
@@ -38,7 +42,7 @@ export function LandingHero() {
           </a>
         </div>
 
-        <div className="lp-ibox" role="group" aria-label="curl install command">
+        <div className="lp-ibox" aria-label="curl install command">
           <span className="lp-ipre" aria-hidden="true">
             curl
           </span>

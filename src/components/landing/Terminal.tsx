@@ -18,26 +18,26 @@ function renderLine(line: TermLine): HTMLElement {
   }
 
   if (line.type === "prompt") {
-    d.innerHTML = `<span style="color:rgba(250,250,250,0.18)">$ </span><span id="ts"></span><span class="lp-tcur"></span>`;
+    d.innerHTML = `<span style="color:var(--t-dim)">$ </span><span id="ts"></span><span class="lp-tcur"></span>`;
     return d;
   }
 
   if (line.type === "confirm") {
     d.innerHTML =
       `<span style="color:var(--gn)">✔</span>  ` +
-      `<span style="color:rgba(250,250,250,0.25)">${line.key}</span>  ` +
-      `<span style="color:rgba(250,250,250,0.18)">›</span>  ` +
+      `<span style="color:var(--t-mid)">${line.key}</span>  ` +
+      `<span style="color:var(--t-dim)">›</span>  ` +
       `<span style="color:var(--txt)">${line.value}</span>`;
     return d;
   }
 
   if (line.type === "info") {
-    d.innerHTML = `<span style="color:rgba(250,250,250,0.25)">${line.text}</span>`;
+    d.innerHTML = `<span style="color:var(--t-mid)">${line.text}</span>`;
     return d;
   }
 
   if (line.type === "file") {
-    d.innerHTML = `<span style="color:var(--gn)">✓</span>  <span style="color:#7eb8f5">${line.path}</span>`;
+    d.innerHTML = `<span style="color:var(--gn)">✓</span>  <span style="color:var(--t-file)">${line.path}</span>`;
     return d;
   }
 
@@ -51,72 +51,93 @@ function renderLine(line: TermLine): HTMLElement {
 
 function makeQuestion(label: string, opts: string[]): HTMLElement {
   const w = document.createElement("div");
-  let h = `<div style="color:rgba(250,250,250,0.2);padding:0 4px"><span style="color:rgba(250,250,250,0.25)">✦</span>  ${label}</div>`;
+  let h = `<div style="color:var(--t-dim);padding:0 4px"><span style="color:var(--t-mid)">✦</span>  ${label}</div>`;
   opts.forEach((o, i) => {
     h +=
       i === 0
         ? `<div style="color:var(--txt);padding:0 4px;line-height:1.7"><span style="color:var(--txt)">❯</span>  ${o}</div>`
-        : `<div style="color:rgba(250,250,250,0.16);padding:0 4px;line-height:1.7"><span style="opacity:0">❯</span>  ${o}</div>`;
+        : `<div style="color:var(--t-faint);padding:0 4px;line-height:1.7"><span style="opacity:0">❯</span>  ${o}</div>`;
   });
   w.innerHTML = h;
   return w;
+}
+
+async function typeCommand(promptEl: HTMLElement, signal: AbortSignal): Promise<boolean> {
+  const ts = promptEl.querySelector<HTMLElement>("#ts");
+  for (const c of "dot scaffold") {
+    if (signal.aborted) return false;
+    if (ts) ts.textContent += c;
+    await sleep(50);
+  }
+  return true;
+}
+
+async function askQuestion(
+  body: HTMLElement,
+  signal: AbortSignal,
+  question: string,
+  opts: string[],
+  key: string,
+  value: string,
+  delayMs: number,
+): Promise<boolean> {
+  const q = makeQuestion(question, opts);
+  body.appendChild(q);
+  await sleep(delayMs);
+  if (signal.aborted) return false;
+  q.remove();
+  body.appendChild(renderLine({ type: "confirm", key, value }));
+  await sleep(160);
+  body.appendChild(document.createElement("br"));
+  return true;
+}
+
+async function generateFiles(body: HTMLElement, signal: AbortSignal): Promise<boolean> {
+  for (const path of [
+    "packages/app/src/index.ts",
+    "packages/server/main.go",
+    "packages/shared/types.ts",
+    "biome.json",
+    "tsconfig.json",
+    ".dot/spec.json",
+  ]) {
+    if (signal.aborted) return false;
+    body.appendChild(renderLine({ type: "file", path }));
+    await sleep(145);
+  }
+  return true;
 }
 
 async function runTerminal(body: HTMLElement, signal: AbortSignal) {
   while (!signal.aborted) {
     body.innerHTML = "";
 
-    // prompt line with cursor
     const promptEl = renderLine({ type: "prompt", cmd: "" });
     body.appendChild(promptEl);
     if (signal.aborted) return;
     await sleep(300);
 
-    // type command
-    const ts = promptEl.querySelector<HTMLElement>("#ts")!;
-    for (const c of "dot scaffold") {
-      if (signal.aborted) return;
-      ts.textContent += c;
-      await sleep(50);
-    }
+    if (!(await typeCommand(promptEl, signal))) return;
     promptEl.querySelector(".lp-tcur")?.remove();
     await sleep(440);
     body.appendChild(document.createElement("br"));
 
-    // question 1
-    const q1 = makeQuestion("Pick a flow", [
-      "monorepo",
-      "fullstack",
-      "microservices",
-      "plugin-template",
-    ]);
-    body.appendChild(q1);
-    await sleep(900);
-    if (signal.aborted) return;
-    body.removeChild(q1);
-    body.appendChild(renderLine({ type: "confirm", key: "flow", value: "monorepo" }));
-
-    await sleep(160);
-    body.appendChild(document.createElement("br"));
-
-    // question 2
-    const q2 = makeQuestion("Include React?", ["yes", "no"]);
-    body.appendChild(q2);
-    await sleep(720);
-    if (signal.aborted) return;
-    body.removeChild(q2);
-    body.appendChild(renderLine({ type: "confirm", key: "react", value: "yes" }));
-
-    await sleep(160);
-    body.appendChild(document.createElement("br"));
-
-    // question 3
-    const q3 = makeQuestion("Add Biome?", ["yes", "no"]);
-    body.appendChild(q3);
-    await sleep(680);
-    if (signal.aborted) return;
-    body.removeChild(q3);
-    body.appendChild(renderLine({ type: "confirm", key: "biome", value: "yes" }));
+    if (
+      !(await askQuestion(
+        body,
+        signal,
+        "Pick a flow",
+        ["monorepo", "fullstack", "microservices", "plugin-template"],
+        "flow",
+        "monorepo",
+        900,
+      ))
+    )
+      return;
+    if (!(await askQuestion(body, signal, "Include React?", ["yes", "no"], "react", "yes", 720)))
+      return;
+    if (!(await askQuestion(body, signal, "Add Biome?", ["yes", "no"], "biome", "yes", 680)))
+      return;
 
     await sleep(260);
     body.appendChild(document.createElement("br"));
@@ -124,18 +145,7 @@ async function runTerminal(body: HTMLElement, signal: AbortSignal) {
     await sleep(640);
     body.appendChild(document.createElement("br"));
 
-    for (const path of [
-      "packages/app/src/index.ts",
-      "packages/server/main.go",
-      "packages/shared/types.ts",
-      "biome.json",
-      "tsconfig.json",
-      ".dot/spec.json",
-    ]) {
-      if (signal.aborted) return;
-      body.appendChild(renderLine({ type: "file", path }));
-      await sleep(145);
-    }
+    if (!(await generateFiles(body, signal))) return;
 
     await sleep(320);
     body.appendChild(document.createElement("br"));

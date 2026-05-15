@@ -1,5 +1,6 @@
 import { Drawer } from "@base-ui/react/drawer";
 import { useEffect, useState } from "react";
+import { ThemeToggle, useTheme } from "../ThemeToggle";
 
 const NAV_LINKS = [
   {
@@ -53,11 +54,12 @@ const CloseIcon = () => (
 
 export function LandingNav() {
   const [scrolled, setScrolled] = useState(false);
+  const { theme, setTheme } = useTheme();
 
   useEffect(() => {
-    const handler = () => setScrolled(window.scrollY > 8);
-    window.addEventListener("scroll", handler, { passive: true });
-    return () => window.removeEventListener("scroll", handler);
+    const handler = () => setScrolled(globalThis.scrollY > 8);
+    globalThis.addEventListener("scroll", handler, { passive: true });
+    return () => globalThis.removeEventListener("scroll", handler);
   }, []);
 
   return (
@@ -74,6 +76,7 @@ export function LandingNav() {
               {label}
             </a>
           ))}
+          <ThemeToggle theme={theme} onTheme={setTheme} />
           <a href="#install" className="lp-cta-btn">
             Install →
           </a>
@@ -92,9 +95,12 @@ export function LandingNav() {
                 <a href="/" className="lp-drawer-logo" aria-label="dot home">
                   <span>·</span>dot
                 </a>
-                <Drawer.Close className="lp-drawer-close" aria-label="Close navigation menu">
-                  <CloseIcon />
-                </Drawer.Close>
+                <div className="lp-drawer-header-right">
+                  <ThemeToggle theme={theme} onTheme={setTheme} />
+                  <Drawer.Close className="lp-drawer-close" aria-label="Close navigation menu">
+                    <CloseIcon />
+                  </Drawer.Close>
+                </div>
               </div>
 
               <nav className="lp-drawer-links" aria-label="Mobile navigation">
