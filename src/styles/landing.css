@@ -250,11 +250,11 @@
   font-weight: 600;
   padding: 10px 20px;
   text-decoration: none;
-  transition: opacity 0.2s;
+  transition: background-color 0.2s;
 }
 .lp-btn-solid:hover,
 .lp-btn-solid:focus-visible {
-  opacity: 0.86;
+  background: #e4e4e7;
 }
 .lp-btn-line {
   display: inline-flex;
