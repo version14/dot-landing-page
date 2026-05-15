@@ -1,93 +1,204 @@
-# Project Name
+Welcome to your new TanStack Start app! 
 
-<!-- Replace the title above, fill in each section, and delete these comments when done. -->
+# Getting Started
 
-[![CI](https://github.com/your-org/your-repo/actions/workflows/ci.yml/badge.svg)](https://github.com/your-org/your-repo/actions/workflows/ci.yml)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-
-One-paragraph description of what this project does and who it is for.
-
----
-
-## Table of Contents
-
-- [Overview](#overview)
-- [Getting Started](#getting-started)
-- [Development](#development)
-- [Architecture](#architecture)
-- [Contributing](#contributing)
-- [License](#license)
-
----
-
-## Overview
-
-Describe the problem this project solves, its main features, and any key design decisions worth highlighting upfront.
-
----
-
-## Getting Started
-
-### Prerequisites
-
-<!-- List the tools and versions required to run this project. -->
-
-| Tool | Version | Install |
-|------|---------|---------|
-| <!-- e.g. Node, Python, Go, Java --> | <!-- e.g. >= 22.x --> | <!-- link --> |
-
-### Installation
+To run this application:
 
 ```bash
-git clone https://github.com/your-org/your-repo.git
-cd your-repo
-
-# Activate the commit-msg hook (optional but recommended)
-git config core.hooksPath .githooks
-
-# Copy and fill in environment variables
-cp .env.example .env
-
-# Install dependencies (replace with your package manager)
-# e.g. npm install / pip install -r requirements.txt / go mod download
+npm install
+npm run dev
 ```
 
-See [docs/getting-started](docs/getting-started/README.md) for the full setup guide.
+# Building For Production
 
----
-
-## Development
+To build this application for production:
 
 ```bash
-# Start development server
-# Run tests
-# Lint / format
-# Build for production
+npm run build
 ```
 
-<!-- Replace the comments above with your project's actual commands. -->
+## Testing
 
----
+This project uses [Vitest](https://vitest.dev/) for testing. You can run the tests with:
 
-## Architecture
-
-Brief description of the high-level structure. Link to detailed docs if available.
-
-```
-.
-├── src/           # Source code
-├── docs/          # Documentation
-└── .github/       # GitHub configuration
+```bash
+npm run test
 ```
 
----
+## Styling
 
-## Contributing
+This project uses [Tailwind CSS](https://tailwindcss.com/) for styling.
 
-Contributions are welcome. Please read [CONTRIBUTING.md](CONTRIBUTING.md) before opening a pull request.
+### Removing Tailwind CSS
 
----
+If you prefer not to use Tailwind CSS:
 
-## License
+1. Remove the demo pages in `src/routes/demo/`
+2. Replace the Tailwind import in `src/styles.css` with your own styles
+3. Remove `tailwindcss()` from the plugins array in `vite.config.ts`
+4. Uninstall the packages: `npm install @tailwindcss/vite tailwindcss -D`
 
-Distributed under the [MIT License](LICENSE).
+## Linting & Formatting
+
+This project uses [Biome](https://biomejs.dev/) for linting and formatting. The following scripts are available:
+
+
+```bash
+npm run lint
+npm run format
+npm run check
+```
+
+
+
+## Routing
+
+This project uses [TanStack Router](https://tanstack.com/router) with file-based routing. Routes are managed as files in `src/routes`.
+
+### Adding A Route
+
+To add a new route to your application just add a new file in the `./src/routes` directory.
+
+TanStack will automatically generate the content of the route file for you.
+
+Now that you have two routes you can use a `Link` component to navigate between them.
+
+### Adding Links
+
+To use SPA (Single Page Application) navigation you will need to import the `Link` component from `@tanstack/react-router`.
+
+```tsx
+import { Link } from "@tanstack/react-router";
+```
+
+Then anywhere in your JSX you can use it like so:
+
+```tsx
+<Link to="/about">About</Link>
+```
+
+This will create a link that will navigate to the `/about` route.
+
+More information on the `Link` component can be found in the [Link documentation](https://tanstack.com/router/v1/docs/framework/react/api/router/linkComponent).
+
+### Using A Layout
+
+In the File Based Routing setup the layout is located in `src/routes/__root.tsx`. Anything you add to the root route will appear in all the routes. The route content will appear in the JSX where you render `{children}` in the `shellComponent`.
+
+Here is an example layout that includes a header:
+
+```tsx
+import { HeadContent, Scripts, createRootRoute } from '@tanstack/react-router'
+
+export const Route = createRootRoute({
+  head: () => ({
+    meta: [
+      { charSet: 'utf-8' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { title: 'My App' },
+    ],
+  }),
+  shellComponent: ({ children }) => (
+    <html lang="en">
+      <head>
+        <HeadContent />
+      </head>
+      <body>
+        <header>
+          <nav>
+            <Link to="/">Home</Link>
+            <Link to="/about">About</Link>
+          </nav>
+        </header>
+        {children}
+        <Scripts />
+      </body>
+    </html>
+  ),
+})
+```
+
+More information on layouts can be found in the [Layouts documentation](https://tanstack.com/router/latest/docs/framework/react/guide/routing-concepts#layouts).
+
+## Server Functions
+
+TanStack Start provides server functions that allow you to write server-side code that seamlessly integrates with your client components.
+
+```tsx
+import { createServerFn } from '@tanstack/react-start'
+
+const getServerTime = createServerFn({
+  method: 'GET',
+}).handler(async () => {
+  return new Date().toISOString()
+})
+
+// Use in a component
+function MyComponent() {
+  const [time, setTime] = useState('')
+  
+  useEffect(() => {
+    getServerTime().then(setTime)
+  }, [])
+  
+  return <div>Server time: {time}</div>
+}
+```
+
+## API Routes
+
+You can create API routes by using the `server` property in your route definitions:
+
+```tsx
+import { createFileRoute } from '@tanstack/react-router'
+import { json } from '@tanstack/react-start'
+
+export const Route = createFileRoute('/api/hello')({
+  server: {
+    handlers: {
+      GET: () => json({ message: 'Hello, World!' }),
+    },
+  },
+})
+```
+
+## Data Fetching
+
+There are multiple ways to fetch data in your application. You can use TanStack Query to fetch data from a server. But you can also use the `loader` functionality built into TanStack Router to load the data for a route before it's rendered.
+
+For example:
+
+```tsx
+import { createFileRoute } from '@tanstack/react-router'
+
+export const Route = createFileRoute('/people')({
+  loader: async () => {
+    const response = await fetch('https://swapi.dev/api/people')
+    return response.json()
+  },
+  component: PeopleComponent,
+})
+
+function PeopleComponent() {
+  const data = Route.useLoaderData()
+  return (
+    <ul>
+      {data.results.map((person) => (
+        <li key={person.name}>{person.name}</li>
+      ))}
+    </ul>
+  )
+}
+```
+
+Loaders simplify your data fetching logic dramatically. Check out more information in the [Loader documentation](https://tanstack.com/router/latest/docs/framework/react/guide/data-loading#loader-parameters).
+
+# Demo files
+
+Files prefixed with `demo` can be safely deleted. They are there to provide a starting point for you to play around with the features you've installed.
+
+# Learn More
+
+You can learn more about all of the offerings from TanStack in the [TanStack documentation](https://tanstack.com).
+
+For TanStack Start specific documentation, visit [TanStack Start](https://tanstack.com/start).
