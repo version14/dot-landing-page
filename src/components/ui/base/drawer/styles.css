@@ -1,0 +1,141 @@
+/* ── BURGER BUTTON ── */
+
+.lp-burger {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: var(--nh);
+  height: var(--nh);
+  border: none;
+  background: none;
+  color: var(--txt);
+  cursor: pointer;
+  margin-left: auto;
+  flex-shrink: 0;
+  transition: color 0.2s;
+}
+.lp-burger:hover,
+.lp-burger:focus-visible {
+  color: var(--mt);
+}
+
+/* ── MOBILE DRAWER ── */
+
+.lp-drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  opacity: 0;
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.lp-drawer-backdrop[data-state="open"],
+.lp-drawer-backdrop[data-entering] {
+  opacity: 1;
+}
+.lp-drawer-backdrop[data-exiting] {
+  opacity: 0;
+}
+
+.lp-drawer-popup {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 400;
+  width: min(320px, 85vw);
+  background: var(--sf);
+  border-left: 1px solid var(--bd);
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  outline: none;
+}
+.lp-drawer-popup[data-state="open"],
+.lp-drawer-popup[data-entering] {
+  transform: translateX(0);
+}
+.lp-drawer-popup[data-exiting] {
+  transform: translateX(100%);
+}
+
+.lp-drawer-header {
+  height: var(--nh);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  border-bottom: 1px solid var(--bd);
+  flex-shrink: 0;
+}
+
+.lp-drawer-logo {
+  font-family: var(--fm);
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--txt);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+.lp-drawer-logo span {
+  font-size: 18px;
+}
+
+.lp-drawer-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: none;
+  color: var(--mt);
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.lp-drawer-close:hover,
+.lp-drawer-close:focus-visible {
+  color: var(--txt);
+}
+
+.lp-drawer-header-right {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.lp-drawer-links {
+  display: flex;
+  flex-direction: column;
+  padding: 8px 0;
+  flex: 1;
+}
+
+.lp-drawer-link {
+  color: var(--mt);
+  text-decoration: none;
+  font-size: 15px;
+  padding: 14px 24px;
+  border-bottom: 1px solid var(--bd);
+  transition:
+    color 0.2s,
+    background 0.2s;
+  display: flex;
+  align-items: center;
+}
+.lp-drawer-link:hover,
+.lp-drawer-link:focus-visible {
+  color: var(--txt);
+  background: var(--sf2);
+}
+
+/* ── LIGHT THEME ── */
+
+.lp.lt .lp-drawer-backdrop {
+  background: rgba(0, 0, 0, 0.3);
+}

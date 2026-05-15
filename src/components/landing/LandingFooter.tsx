@@ -1,3 +1,5 @@
+import { Toolbar } from "../ui/base/toolbar";
+
 const footerLinks = [
   {
     label: "Docs",
@@ -27,13 +29,19 @@ export function LandingFooter() {
       <div className="lp-f-logo">
         <span>·</span>dot
       </div>
-      <nav className="lp-f-links" aria-label="Footer navigation">
+      <Toolbar.Root className="lp-f-links" aria-label="Footer navigation">
         {footerLinks.map(({ label, href }) => (
-          <a key={label} href={href} className="lp-flk" target="_blank" rel="noopener noreferrer">
+          <Toolbar.Link
+            key={label}
+            href={href}
+            className="lp-flk"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             {label}
-          </a>
+          </Toolbar.Link>
         ))}
-      </nav>
+      </Toolbar.Root>
       <div className="lp-f-right">version14/dot · MIT</div>
     </footer>
   );

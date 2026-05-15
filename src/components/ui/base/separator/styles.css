@@ -1,0 +1,16 @@
+/* ── SEPARATOR ── */
+
+.lp-sep {
+  background: var(--bd);
+  flex-shrink: 0;
+}
+
+.lp-sep-vertical {
+  width: 1px;
+  align-self: stretch;
+}
+
+.lp-sep-horizontal {
+  height: 1px;
+  width: 100%;
+}

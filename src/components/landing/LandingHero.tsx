@@ -1,3 +1,4 @@
+import { LinkButton } from "../ui/base/button";
 import { CopyButton } from "../ui/CopyButton";
 import { Terminal } from "./Terminal";
 
@@ -29,17 +30,15 @@ export function LandingHero({ version }: Readonly<LandingHeroProps>) {
         </p>
 
         <div className="lp-acts">
-          <a href="#install" className="lp-btn-solid">
-            Install now
-          </a>
-          <a
+          <LinkButton href="#install">Install now</LinkButton>
+          <LinkButton
+            variant="outline"
             href="https://github.com/version14/dot/blob/main/docs/user/getting-started.md"
-            className="lp-btn-line"
             target="_blank"
             rel="noopener noreferrer"
           >
             Read the docs →
-          </a>
+          </LinkButton>
         </div>
 
         <div className="lp-ibox" aria-label="curl install command">

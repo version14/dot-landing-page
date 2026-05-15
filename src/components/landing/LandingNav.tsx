@@ -1,6 +1,7 @@
-import { Drawer } from "@base-ui/react/drawer";
 import { useEffect, useState } from "react";
 import { ThemeToggle, useTheme } from "../ThemeToggle";
+import { Drawer } from "../ui/base/drawer";
+import { NavLinks } from "../ui/base/navigation-menu";
 
 const NAV_LINKS = [
   {
@@ -70,17 +71,13 @@ export function LandingNav() {
         </a>
 
         {/* Desktop nav links */}
-        <nav className="lp-mid" aria-label="Main navigation">
-          {NAV_LINKS.map(({ label, href }) => (
-            <a key={label} href={href} className="lp-nl" target="_blank" rel="noopener noreferrer">
-              {label}
-            </a>
-          ))}
+        <div className="lp-mid">
+          <NavLinks links={NAV_LINKS} />
           <ThemeToggle theme={theme} onTheme={setTheme} />
           <a href="#install" className="lp-cta-btn">
             Install →
           </a>
-        </nav>
+        </div>
 
         {/* Mobile drawer */}
         <Drawer.Root>

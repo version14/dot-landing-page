@@ -1,3 +1,6 @@
+import { FlowCard } from "../ui/FlowCard";
+import { SectionHeader } from "../ui/SectionHeader";
+
 interface Flow {
   slug: string;
   title: string;
@@ -40,37 +43,29 @@ const FLOWS: Flow[] = [
 export function LandingFlows() {
   return (
     <>
-      <div className="lp-sec-hdr" id="flows">
-        <div className="lp-sec-hdr-l lp-fu">
-          <div className="lp-sec-lbl">Built-in flows</div>
-          <h2 className="lp-sec-h">
+      <SectionHeader
+        id="flows"
+        label="Built-in flows"
+        title={
+          <>
             Your stack,
             <br />
             out of the box.
-          </h2>
-        </div>
-        <div className="lp-sec-hdr-r lp-fu d1">
-          <p className="lp-sec-s">
-            Four production-ready templates included. More available as community plugins.
-          </p>
-        </div>
-      </div>
+          </>
+        }
+        subtitle="Four production-ready templates included. More available as community plugins."
+      />
 
       <div className="lp-flows" role="list">
         {FLOWS.map(({ slug, title, desc, tags, delay }) => (
-          <div key={slug} className={`lp-fl-c lp-fu ${delay}`} role="listitem">
-            <div className="lp-fl-id">
-              <span className="lp-fl-pre">$ dot scaffold&nbsp;</span>
-              {slug}
-            </div>
-            <div className="lp-fl-ttl">{title}</div>
-            <div className="lp-fl-dsc">{desc}</div>
-            <div className="lp-fl-tags">
-              {tags.map((tag) => (
-                <span key={tag}>{tag}</span>
-              ))}
-            </div>
-          </div>
+          <FlowCard
+            key={slug}
+            slug={slug}
+            title={title}
+            description={desc}
+            tags={tags}
+            delay={delay}
+          />
         ))}
       </div>
     </>

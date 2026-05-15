@@ -1,4 +1,5 @@
-import { Toast } from "@base-ui/react/toast";
+import { Toast } from "./base/toast";
+import { Tooltip } from "./base/tooltip";
 
 export const toastManager = Toast.createToastManager();
 
@@ -35,7 +36,9 @@ function ToastList() {
 export function LandingToastProvider({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <Toast.Provider toastManager={toastManager} timeout={2200}>
-      {children}
+      <Tooltip.Provider delay={400} closeDelay={0}>
+        {children}
+      </Tooltip.Provider>
       <Toast.Viewport className="lp-toast-viewport">
         <ToastList />
       </Toast.Viewport>

@@ -1,4 +1,4 @@
-import { CopyButton } from "../ui/CopyButton";
+import { InstallRow } from "../ui/InstallRow";
 
 interface InstallMethod {
   tag: string;
@@ -35,13 +35,7 @@ export function LandingInstall() {
 
         <div className="lp-io" role="list" aria-label="Install options">
           {INSTALL_METHODS.map(({ tag, value, ariaLabel }) => (
-            <div key={tag} className="lp-ir" role="listitem">
-              <span className="lp-itag">{tag}</span>
-              <span className="lp-ival-cmd" aria-label={value}>
-                {value}
-              </span>
-              <CopyButton text={value} className="lp-cbtn" aria-label={ariaLabel} />
-            </div>
+            <InstallRow key={tag} tag={tag} value={value} ariaLabel={ariaLabel} />
           ))}
         </div>
 

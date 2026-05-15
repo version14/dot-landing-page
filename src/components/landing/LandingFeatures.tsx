@@ -1,3 +1,5 @@
+import { BentoCell } from "../ui/BentoCell";
+import { SectionHeader } from "../ui/SectionHeader";
 import { BentoTUI } from "./BentoTUI";
 
 const TerminalIcon = () => (
@@ -68,28 +70,31 @@ const PipelineIcon = () => (
 
 const PIPELINE_STEPS = ["TUI survey", "Spec", "Generators", "File tree", "Project on disk"];
 
+const PipelineDescription = () => (
+  <>
+    Every scaffold runs the same flow. Reproducible, auditable, and the full spec is always written
+    to <code className="lp-code">.dot/spec.json</code>.
+  </>
+);
+
 export function LandingFeatures() {
   return (
     <>
-      <div className="lp-sec-hdr" id="features">
-        <div className="lp-sec-hdr-l lp-fu">
-          <div className="lp-sec-lbl">Features</div>
-          <h2 className="lp-sec-h">
+      <SectionHeader
+        id="features"
+        label="Features"
+        title={
+          <>
             Built for the way
             <br />
             developers actually work.
-          </h2>
-        </div>
-        <div className="lp-sec-hdr-r lp-fu d1">
-          <p className="lp-sec-s">
-            Answer prompts, get a project, ship it. No config files. No boilerplate hunting. No
-            drift.
-          </p>
-        </div>
-      </div>
+          </>
+        }
+        subtitle="Answer prompts, get a project, ship it. No config files. No boilerplate hunting. No drift."
+      />
 
       <div className="lp-bento" role="list">
-        {/* TUI — wide cell */}
+        {/* TUI — wide cell, custom layout */}
         <div className="lp-bn-a" role="listitem">
           <div className="lp-bn-a-inner">
             <div className="lp-bn-a-body">
@@ -106,40 +111,26 @@ export function LandingFeatures() {
           </div>
         </div>
 
-        {/* Extensible */}
-        <div className="lp-bcell lp-bn-b lp-fu d1" role="listitem">
-          <div className="lp-bc-icon" aria-hidden="true">
-            <ExtensibleIcon />
-          </div>
-          <h3>Extensible</h3>
-          <p>
-            Publish generators and plugins for any language or pattern. Compose them like building
-            blocks. The plugin API is stable and public.
-          </p>
-        </div>
+        <BentoCell
+          icon={<ExtensibleIcon />}
+          title="Extensible"
+          description="Publish generators and plugins for any language or pattern. Compose them like building blocks. The plugin API is stable and public."
+          className="lp-bn-b lp-fu d1"
+        />
 
-        {/* Doctor */}
-        <div className="lp-bcell lp-bn-c lp-fu" role="listitem">
-          <div className="lp-bc-icon" aria-hidden="true">
-            <DoctorIcon />
-          </div>
-          <h3>Update &amp; Doctor</h3>
-          <p>
-            Re-run generators against existing projects. Diagnose and fix drift between your spec
-            and installed tools.
-          </p>
-        </div>
+        <BentoCell
+          icon={<DoctorIcon />}
+          title="Update &amp; Doctor"
+          description="Re-run generators against existing projects. Diagnose and fix drift between your spec and installed tools."
+          className="lp-bn-c lp-fu"
+        />
 
-        {/* Pipeline */}
-        <div className="lp-bcell lp-bn-d lp-fu d1" role="listitem">
-          <div className="lp-bc-icon" aria-hidden="true">
-            <PipelineIcon />
-          </div>
-          <h3>Deterministic pipeline</h3>
-          <p>
-            Every scaffold runs the same flow. Reproducible, auditable, and the full spec is always
-            written to <code className="lp-code">.dot/spec.json</code> .
-          </p>
+        <BentoCell
+          icon={<PipelineIcon />}
+          title="Deterministic pipeline"
+          description={<PipelineDescription />}
+          className="lp-bn-d lp-fu d1"
+        >
           <div className="lp-pipeline" aria-label="Pipeline steps">
             {PIPELINE_STEPS.map((step, i) => (
               <span key={step} style={{ display: "contents" }}>
@@ -152,7 +143,7 @@ export function LandingFeatures() {
               </span>
             ))}
           </div>
-        </div>
+        </BentoCell>
       </div>
     </>
   );

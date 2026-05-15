@@ -1,0 +1,27 @@
+/* ── TOOLTIP (base-ui) ── */
+
+.lp-tooltip {
+  background: var(--txt);
+  color: var(--bg);
+  font-family: var(--fh);
+  font-size: 11.5px;
+  font-weight: 500;
+  padding: 4px 10px;
+  pointer-events: none;
+  white-space: nowrap;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transform: translateY(3px);
+  transition:
+    opacity 0.15s ease,
+    transform 0.15s ease;
+}
+.lp-tooltip[data-state="open"],
+.lp-tooltip[data-entering] {
+  opacity: 1;
+  transform: translateY(0);
+}
+.lp-tooltip[data-exiting] {
+  opacity: 0;
+  transform: translateY(3px);
+}

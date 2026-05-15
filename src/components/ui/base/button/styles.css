@@ -1,0 +1,112 @@
+/* ── BUTTON BASE ── */
+
+.lp-btn-solid {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--txt);
+  color: var(--bg);
+  font-family: var(--fh);
+  font-size: 13.5px;
+  font-weight: 600;
+  padding: 10px 20px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.lp-btn-solid:hover,
+.lp-btn-solid:focus-visible {
+  background: #d4d4d8;
+}
+
+.lp-btn-line {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--mt);
+  font-size: 13.5px;
+  text-decoration: none;
+  border: 1px solid var(--bd);
+  background: none;
+  cursor: pointer;
+  padding: 10px 18px;
+  transition:
+    color 0.2s,
+    border-color 0.2s;
+}
+.lp-btn-line:hover,
+.lp-btn-line:focus-visible {
+  color: var(--txt);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* ── NAV CTA ── */
+
+.lp-cta-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  height: 100%;
+  padding: 0 28px;
+  background: var(--txt);
+  color: var(--bg);
+  font-family: var(--fh);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  border-left: 1px solid var(--bd);
+}
+.lp-cta-btn:hover,
+.lp-cta-btn:focus-visible {
+  opacity: 0.88;
+  outline-offset: 0;
+}
+
+/* ── DRAWER CTA ── */
+
+.lp-drawer-cta {
+  margin: 20px 24px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--txt);
+  color: var(--bg);
+  font-family: var(--fh);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 13px 20px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.lp-drawer-cta:hover,
+.lp-drawer-cta:focus-visible {
+  background: #d4d4d8;
+}
+
+/* ── LIGHT THEME OVERRIDES ── */
+
+.lp.lt .lp-btn-solid:hover,
+.lp.lt .lp-btn-solid:focus-visible {
+  background: #27272a;
+}
+.lp.lt .lp-btn-solid:hover,
+.lp.lt .lp-btn-solid:focus-visible {
+  color: var(--bg);
+}
+
+.lp.lt .lp-btn-line:hover,
+.lp.lt .lp-btn-line:focus-visible {
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+.lp.lt .lp-drawer-cta:hover,
+.lp.lt .lp-drawer-cta:focus-visible {
+  background: #27272a;
+  color: #fafafa;
+}

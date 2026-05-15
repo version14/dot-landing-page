@@ -1,3 +1,6 @@
+import { StepCard } from "../ui/StepCard";
+import { SectionHeader } from "../ui/SectionHeader";
+
 const STEPS = [
   {
     num: "01",
@@ -37,30 +40,28 @@ const STEPS = [
 export function LandingHowItWorks() {
   return (
     <>
-      <div className="lp-sec-hdr">
-        <div className="lp-sec-hdr-l lp-fu">
-          <div className="lp-sec-lbl">How it works</div>
-          <h2 className="lp-sec-h">
+      <SectionHeader
+        label="How it works"
+        title={
+          <>
             Three steps from
             <br />
             zero to project.
-          </h2>
-        </div>
-        <div className="lp-sec-hdr-r lp-fu d1">
-          <p className="lp-sec-s">
-            Install once. Scaffold in seconds. Keep projects in sync forever with update and doctor.
-          </p>
-        </div>
-      </div>
+          </>
+        }
+        subtitle="Install once. Scaffold in seconds. Keep projects in sync forever with update and doctor."
+      />
 
       <div className="lp-steps" role="list">
         {STEPS.map(({ num, title, desc, code, delay }) => (
-          <div key={num} className={`lp-step-c lp-fu ${delay}`} role="listitem">
-            <div className="lp-snum">{num}</div>
-            <div className="lp-sttl">{title}</div>
-            <p className="lp-sdsc">{desc}</p>
-            <div className="lp-scde">{code}</div>
-          </div>
+          <StepCard
+            key={num}
+            num={num}
+            title={title}
+            description={desc}
+            code={code}
+            delay={delay}
+          />
         ))}
       </div>
     </>
