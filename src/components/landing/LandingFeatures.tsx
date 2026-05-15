@@ -93,11 +93,11 @@ export function LandingFeatures() {
         subtitle="Answer prompts, get a project, ship it. No config files. No boilerplate hunting. No drift."
       />
 
-      <div className="lp-bento" role="list">
+      <ul className="lp-bento">
         {/* TUI — wide cell, custom layout */}
-        <div className="lp-bn-a" role="listitem">
+        <li className="lp-bn-a">
           <div className="lp-bn-a-inner">
-            <div className="lp-bn-a-body">
+            <div className="lp-bn-a-body lp-bcell">
               <div className="lp-bc-icon" aria-hidden="true">
                 <TerminalIcon />
               </div>
@@ -109,7 +109,7 @@ export function LandingFeatures() {
             </div>
             <BentoTUI />
           </div>
-        </div>
+        </li>
 
         <BentoCell
           icon={<ExtensibleIcon />}
@@ -144,7 +144,7 @@ export function LandingFeatures() {
             ))}
           </div>
         </BentoCell>
-      </div>
+      </ul>
     </>
   );
 }

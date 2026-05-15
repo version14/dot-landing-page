@@ -10,18 +10,14 @@
   pointer-events: none;
   white-space: nowrap;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
-  opacity: 0;
-  transform: translateY(3px);
+  opacity: 1;
+  transform: translateY(0);
   transition:
     opacity 0.15s ease,
     transform 0.15s ease;
 }
-.lp-tooltip[data-state="open"],
-.lp-tooltip[data-entering] {
-  opacity: 1;
-  transform: translateY(0);
-}
-.lp-tooltip[data-exiting] {
+.lp-tooltip[data-starting-style],
+.lp-tooltip[data-ending-style] {
   opacity: 0;
   transform: translateY(3px);
 }

@@ -2,7 +2,7 @@
 
 /* ── BASE UI COMPONENT STYLES ── */
 @import "../components/ui/base/button/styles.css";
-@import "../components/ui/base/toggle/styles.css";
+@import "../components/ui/base/select/styles.css";
 @import "../components/ui/base/tooltip/styles.css";
 @import "../components/ui/base/toolbar/styles.css";
 @import "../components/ui/base/navigation-menu/styles.css";
@@ -11,6 +11,31 @@
 @import "../components/ui/base/drawer/styles.css";
 
 /* ── DESIGN TOKENS ── */
+/* Forward tokens to body so Base UI portals (Select, Drawer) inherit them */
+body:has(.lp) {
+  --bg: #09090b;
+  --sf: #0f0f12;
+  --sf2: #16161a;
+  --bd: rgba(255, 255, 255, 0.09);
+  --txt: #fafafa;
+  --mt: #a1a1aa;
+  --dm: #71717a;
+  --gn: #3dd68c;
+  --fh: "Plus Jakarta Sans", sans-serif;
+  --fb: "DM Sans", sans-serif;
+  --fm: "JetBrains Mono", monospace;
+}
+body:has(.lp.lt) {
+  --bg: #fafafa;
+  --sf: #f0f0f3;
+  --sf2: #e4e4e8;
+  --bd: rgba(0, 0, 0, 0.09);
+  --txt: #09090b;
+  --mt: #52525b;
+  --dm: #71717a;
+  --gn: #15803d;
+}
+
 .lp {
   --bg: #09090b;
   --sf: #0f0f12;
@@ -34,6 +59,7 @@
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   min-height: 100svh;
+  isolation: isolate;
 }
 
 .lp::before {
@@ -117,7 +143,9 @@
   display: flex;
   align-items: center;
   border-right: 1px solid var(--bd);
-  transition: border-color 0.2s;
+}
+.lp-logo:hover {
+  color: var(--txt);
 }
 .lp-logo span {
   font-size: 20px;
@@ -434,6 +462,9 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   border-bottom: 1px solid var(--bd);
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 .lp-bn-a {
   grid-column: 1 / 3;
@@ -650,12 +681,17 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   border-bottom: 1px solid var(--bd);
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 .lp-fl-c {
   padding: 52px;
   border-right: 1px solid var(--bd);
   border-bottom: 1px solid var(--bd);
-  transition: background 0.25s;
+  transition:
+    background 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .lp-fl-c:nth-child(2n) {
   border-right: none;
@@ -664,7 +700,8 @@
   border-bottom: none;
 }
 .lp-fl-c:hover {
-  background: var(--sf);
+  background: var(--sf2);
+  border-color: rgba(255, 255, 255, 0.13);
 }
 .lp-fl-id {
   display: flex;
@@ -954,7 +991,7 @@
   }
   /* Hide desktop nav — show burger */
   .lp-mid nav,
-  .lp-mid .lp-theme-group,
+  .lp-mid .lp-theme-trigger,
   .lp-mid .lp-cta-btn {
     display: none;
   }

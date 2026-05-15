@@ -8,7 +8,7 @@ interface FlowCardProps {
 
 export function FlowCard({ slug, title, description, tags, delay = "" }: Readonly<FlowCardProps>) {
   return (
-    <div className={`lp-fl-c lp-fu ${delay}`.trimEnd()} role="listitem">
+    <li className={`lp-fl-c lp-fu ${delay}`.trimEnd()}>
       <div className="lp-fl-id">
         <span className="lp-fl-pre">$ dot scaffold&nbsp;</span>
         {slug}
@@ -20,6 +20,6 @@ export function FlowCard({ slug, title, description, tags, delay = "" }: Readonl
           <span key={tag}>{tag}</span>
         ))}
       </div>
-    </div>
+    </li>
   );
 }

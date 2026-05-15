@@ -14,13 +14,13 @@ export function BentoCell({
   children,
 }: Readonly<BentoCellProps>) {
   return (
-    <div className={`lp-bcell ${className}`} role="listitem">
+    <li className={`lp-bcell ${className}`}>
       <div className="lp-bc-icon" aria-hidden="true">
         {icon}
       </div>
       <h3>{title}</h3>
       <p>{description}</p>
       {children}
-    </div>
+    </li>
   );
 }

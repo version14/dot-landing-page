@@ -56,7 +56,7 @@ export function LandingFlows() {
         subtitle="Four production-ready templates included. More available as community plugins."
       />
 
-      <div className="lp-flows" role="list">
+      <ul className="lp-flows">
         {FLOWS.map(({ slug, title, desc, tags, delay }) => (
           <FlowCard
             key={slug}
@@ -67,7 +67,7 @@ export function LandingFlows() {
             delay={delay}
           />
         ))}
-      </div>
+      </ul>
     </>
   );
 }

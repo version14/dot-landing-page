@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import type { Theme } from "./ui/base/toggle";
-import { ThemeToggleGroup } from "./ui/base/toggle";
+import type { Theme } from "./ui/base/select";
 
 export type { Theme };
 
@@ -45,4 +44,4 @@ export function useTheme() {
   return { theme: themeState, setTheme };
 }
 
-export { ThemeToggleGroup as ThemeToggle };
+export { ThemeSelect as ThemeToggle } from "./ui/base/select";
