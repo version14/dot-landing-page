@@ -283,7 +283,7 @@
 .lp-ipre {
   font-family: var(--fm);
   font-size: 12px;
-  color: var(--dm);
+  color: var(--mt);
   padding: 10px 13px;
   border-right: 1px solid var(--bd);
   white-space: nowrap;
@@ -350,7 +350,7 @@
 .lp-ttl {
   font-family: var(--fm);
   font-size: 11px;
-  color: var(--dm);
+  color: var(--mt);
   margin: 0 auto;
   letter-spacing: 0.02em;
 }
@@ -792,7 +792,7 @@
 .lp-itag {
   font-family: var(--fm);
   font-size: 10.5px;
-  color: var(--dm);
+  color: var(--mt);
   padding: 13px 14px;
   border-right: 1px solid var(--bd);
   background: var(--sf2);
@@ -834,7 +834,7 @@
 }
 .lp-cta-note {
   font-size: 13px;
-  color: var(--dm);
+  color: var(--mt);
 }
 .lp-cta-note a {
   color: var(--mt);
