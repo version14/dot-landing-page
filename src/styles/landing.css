@@ -333,7 +333,8 @@ body:has(.lp.lt) {
   font-family: var(--fm);
   font-size: 12.5px;
   line-height: 1.8;
-  min-height: 300px;
+  height: 400px;
+  overflow: hidden;
 }
 .lp-tpr {
   color: var(--t-dim);

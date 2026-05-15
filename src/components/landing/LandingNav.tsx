@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { ThemeToggle, useTheme } from "../ThemeToggle";
 import { Drawer } from "../ui/base/drawer";
-import { NavLinks } from "../ui/base/navigation-menu";
+import { NavLinks } from "../ui/NavLinks";
 
 const NAV_LINKS = [
   {
