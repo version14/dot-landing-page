@@ -98,6 +98,8 @@ body {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  isolation: isolate;
+  position: relative;
 }
 
 body::before {
@@ -258,4 +260,3 @@ a {
     transform: translateY(0);
   }
 }
-
