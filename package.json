@@ -9,6 +9,7 @@
     "dev": "vp dev",
     "build": "vp build",
     "preview": "vp preview",
+    "start": "vp preview",
     "test": "vp test",
     "format": "vp fmt",
     "lint": "vp lint",
