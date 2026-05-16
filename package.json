@@ -9,7 +9,7 @@
     "dev": "vp dev",
     "build": "vp build",
     "preview": "vp preview",
-    "start": "vp preview",
+    "start": "vp preview --port=3000 --host=0.0.0.0",
     "test": "vp test",
     "format": "vp fmt",
     "lint": "vp lint",
