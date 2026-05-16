@@ -12,13 +12,11 @@ COPY . .
 
 RUN pnpm run build
 
-FROM node:22-alpine AS runner
-WORKDIR /app
+# 2. Serve Stage
+FROM nginx:alpine AS runner
+COPY --from=builder /app/dist /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-RUN npm install -g pnpm@11.1.2
+EXPOSE 80
 
-COPY --from=builder /app /app
-
-EXPOSE 3000
-
-CMD ["pnpm", "run", "start", "--host", "0.0.0.0", "--port=3000"]
+CMD ["nginx", "-g", "daemon off;"]

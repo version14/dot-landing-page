@@ -16,12 +16,12 @@ Docs are local at `node_modules/vite-plus/docs` or online at https://viteplus.de
 
 ## Deploy Configuration (configured by /setup-deploy)
 
-- Platform: Coolify (self-hosted PaaS) + Nixpacks
+- Platform: Coolify (self-hosted PaaS) + Docker
 - Production URL: TBD (not configured yet in Coolify)
 - Deploy workflow: auto-deploy on push to main (Coolify git webhook)
 - Deploy status command: HTTP health check on production URL
 - Merge method: squash
-- Project type: web app (TanStack Start SSR / Node.js server)
+- Project type: static site (TanStack Router SPA / nginx)
 - Post-deploy health check: TBD (set once production URL is known)
 
 ### Custom deploy hooks
@@ -31,13 +31,10 @@ Docs are local at `node_modules/vite-plus/docs` or online at https://viteplus.de
 - Deploy status: poll production URL until HTTP 200
 - Health check: TBD (set production URL once configured)
 
-### Coolify dashboard settings (Nixpacks)
+### Coolify dashboard settings (Docker)
 
 Configure these in your Coolify application settings:
 
-- **Build command**: `pnpm install && pnpm run build`
-- **Start command**: `node .output/server/index.mjs`
-- **Port**: 3000
-- **Node.js version**: 20 (or match your local version)
-- **Package manager**: pnpm (Nixpacks auto-detects from packageManager field)
-- **Required env vars in Coolify**: `PORT=3000`, `HOST=0.0.0.0` (critical — without HOST=0.0.0.0 the Coolify proxy can't reach the server)
+- **Build type**: Dockerfile
+- **Port**: 80
+- **No env vars required** — the app is fully static, served by nginx
