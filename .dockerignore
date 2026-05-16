@@ -7,3 +7,6 @@ dist
 *.md
 .vscode
 .idea
+.tanstack
+coverage
+docs

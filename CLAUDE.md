@@ -22,14 +22,13 @@ Docs are local at `node_modules/vite-plus/docs` or online at https://viteplus.de
 - Deploy status command: HTTP health check on production URL
 - Merge method: squash
 - Project type: static site (TanStack Router SPA / nginx)
-- Post-deploy health check: TBD (set once production URL is known)
+- Post-deploy health check: `GET /health` → 200 OK
 
 ### Custom deploy hooks
 
 - Pre-merge: `vp check && vp test`
 - Deploy trigger: automatic on push to main (Coolify webhook)
-- Deploy status: poll production URL until HTTP 200
-- Health check: TBD (set production URL once configured)
+- Deploy status: poll `<production-url>/health` until HTTP 200
 
 ### Coolify dashboard settings (Docker)
 
@@ -37,4 +36,5 @@ Configure these in your Coolify application settings:
 
 - **Build type**: Dockerfile
 - **Port**: 80
+- **Health check path**: `/health`
 - **No env vars required** — the app is fully static, served by nginx
