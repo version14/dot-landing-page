@@ -1,0 +1,127 @@
+{
+  "tool_version": "",
+  "last_executed_at": "2026-06-02T07:19:43.046306Z",
+  "execution_time_ms": 18490,
+  "generators_executed": [
+    {
+      "name": "base_project",
+      "version_constraint": "",
+      "resolved_version": "0.1.0",
+      "executed_at": "2026-06-02T07:19:43.046306Z",
+      "invocation_count": 1,
+      "content_hash": ""
+    },
+    {
+      "name": "typescript_base",
+      "version_constraint": "",
+      "resolved_version": "0.2.1",
+      "executed_at": "2026-06-02T07:19:43.046306Z",
+      "invocation_count": 1,
+      "content_hash": ""
+    },
+    {
+      "name": "react_app",
+      "version_constraint": "",
+      "resolved_version": "0.6.0",
+      "executed_at": "2026-06-02T07:19:43.046306Z",
+      "invocation_count": 1,
+      "content_hash": ""
+    },
+    {
+      "name": "tanstack_router",
+      "version_constraint": "",
+      "resolved_version": "0.2.0",
+      "executed_at": "2026-06-02T07:19:43.046306Z",
+      "invocation_count": 1,
+      "content_hash": ""
+    },
+    {
+      "name": "version14_ui",
+      "version_constraint": "",
+      "resolved_version": "0.2.0",
+      "executed_at": "2026-06-02T07:19:43.046306Z",
+      "invocation_count": 1,
+      "content_hash": ""
+    },
+    {
+      "name": "panda_css",
+      "version_constraint": "",
+      "resolved_version": "0.2.0",
+      "executed_at": "2026-06-02T07:19:43.046306Z",
+      "invocation_count": 1,
+      "content_hash": ""
+    },
+    {
+      "name": "zustand_setup",
+      "version_constraint": "",
+      "resolved_version": "0.2.0",
+      "executed_at": "2026-06-02T07:19:43.046306Z",
+      "invocation_count": 1,
+      "content_hash": ""
+    },
+    {
+      "name": "vitest_testing_library",
+      "version_constraint": "",
+      "resolved_version": "0.2.0",
+      "executed_at": "2026-06-02T07:19:43.046306Z",
+      "invocation_count": 1,
+      "content_hash": ""
+    },
+    {
+      "name": "playwright_setup",
+      "version_constraint": "",
+      "resolved_version": "0.2.0",
+      "executed_at": "2026-06-02T07:19:43.046306Z",
+      "invocation_count": 1,
+      "content_hash": ""
+    },
+    {
+      "name": "storybook_setup",
+      "version_constraint": "",
+      "resolved_version": "0.2.0",
+      "executed_at": "2026-06-02T07:19:43.046306Z",
+      "invocation_count": 1,
+      "content_hash": ""
+    },
+    {
+      "name": "theme_provider",
+      "version_constraint": "",
+      "resolved_version": "0.1.0",
+      "executed_at": "2026-06-02T07:19:43.046306Z",
+      "invocation_count": 1,
+      "content_hash": ""
+    },
+    {
+      "name": "feature_flags_local",
+      "version_constraint": "",
+      "resolved_version": "0.1.0",
+      "executed_at": "2026-06-02T07:19:43.046306Z",
+      "invocation_count": 1,
+      "content_hash": ""
+    },
+    {
+      "name": "analytics_ga4",
+      "version_constraint": "",
+      "resolved_version": "0.2.0",
+      "executed_at": "2026-06-02T07:19:43.046306Z",
+      "invocation_count": 1,
+      "content_hash": ""
+    },
+    {
+      "name": "seo_react",
+      "version_constraint": "",
+      "resolved_version": "0.2.0",
+      "executed_at": "2026-06-02T07:19:43.046306Z",
+      "invocation_count": 1,
+      "content_hash": ""
+    },
+    {
+      "name": "biome_config",
+      "version_constraint": "",
+      "resolved_version": "0.2.4",
+      "executed_at": "2026-06-02T07:19:43.046306Z",
+      "invocation_count": 1,
+      "content_hash": ""
+    }
+  ]
+}

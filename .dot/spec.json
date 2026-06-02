@@ -1,0 +1,56 @@
+{
+  "flow_id": "frontend",
+  "created_at": "2026-06-02T07:19:42.190976Z",
+  "metadata": {
+    "project_name": ".",
+    "tool_version": ""
+  },
+  "answers": {
+    "analytics-provider": "ga4",
+    "confirm-generate": true,
+    "feature-flags-provider": "local",
+    "framework": "react-vite",
+    "frontend-formatter": "biome",
+    "frontend-linter": "biome",
+    "frontend-router": "tanstack-router",
+    "frontend-state": "zustand",
+    "frontend-styling": "panda-css",
+    "include-analytics": true,
+    "include-auth": false,
+    "include-feature-flags": true,
+    "include-playwright": true,
+    "include-sentry": false,
+    "include-seo": true,
+    "include-storybook": true,
+    "include-theme": true,
+    "include-vitest": true,
+    "project_name": ".",
+    "ui-library": "version14"
+  },
+  "visited_nodes": [
+    "project_name",
+    "framework",
+    "frontend-router",
+    "ui-library",
+    "frontend-styling",
+    "frontend-state",
+    "frontend-formatter",
+    "frontend-linter",
+    "include-vitest",
+    "include-playwright",
+    "include-storybook",
+    "include-auth",
+    "include-theme",
+    "include-feature-flags",
+    "feature-flags-provider",
+    "include-sentry",
+    "include-analytics",
+    "analytics-provider",
+    "include-seo",
+    "confirm-generate"
+  ],
+  "loaded_plugins": [
+    "biome_extras"
+  ],
+  "generator_constraints": {}
+}
