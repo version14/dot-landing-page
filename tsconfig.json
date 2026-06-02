@@ -5,10 +5,15 @@
     "lib": ["DOM", "DOM.Iterable", "ES2022"],
     "module": "ESNext",
     "moduleResolution": "bundler",
+    "rootDir": ".",
     "outDir": "dist",
     "skipLibCheck": true,
     "strict": true,
-    "target": "ES2022"
+    "target": "ES2022",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@styled-system/*": ["./styled-system/*"]
+    }
   },
-  "include": ["src"]
+  "include": ["src", "vite.config.ts"]
 }

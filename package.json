@@ -1,7 +1,25 @@
 {
+  "name": "dot-landing-page",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc && vite build",
+    "build-storybook": "storybook build",
+    "dev": "vite",
+    "format": "biome check --write .",
+    "lint": "biome check .",
+    "prepare": "panda codegen",
+    "preview": "vite preview",
+    "storybook": "storybook dev -p 6006",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "test:e2e": "playwright test",
+    "test:watch": "vitest"
+  },
   "dependencies": {
     "@tanstack/react-router": "^1.170.9",
-    "@version14/ui": "0.5.2",
+    "@version14/ui": "0.7.2",
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
     "react-ga4": "^3.0.1",
@@ -27,23 +45,5 @@
     "typescript": "^6.0.3",
     "vite": "^8.0.14",
     "vitest": "^4.1.7"
-  },
-  "name": "dot-landing-page",
-  "private": true,
-  "scripts": {
-    "build": "tsc \u0026\u0026 vite build",
-    "build-storybook": "storybook build",
-    "dev": "vite",
-    "format": "biome format --write .",
-    "lint": "biome check .",
-    "prepare": "panda codegen",
-    "preview": "vite preview",
-    "storybook": "storybook dev -p 6006",
-    "test": "vitest run",
-    "test:coverage": "vitest run --coverage",
-    "test:e2e": "playwright test",
-    "test:watch": "vitest"
-  },
-  "type": "module",
-  "version": "1.0.0"
+  }
 }
